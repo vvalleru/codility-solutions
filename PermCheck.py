@@ -1,4 +1,5 @@
 def solution(A):
+    # need to count elements, because the array may have duplicate elements
     N = len(A)
     lookup = [0] * (N + 1)
     

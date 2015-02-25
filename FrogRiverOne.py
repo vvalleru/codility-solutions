@@ -1,10 +1,13 @@
 def solution(X, A):
-    flags = [0] * (X + 1)
+    flags = [False] * (X + 1)
     
     for i in xrange(len(A)):
-        if flags[A[i]] == 0:
-            flags[A[i]] = 1
+        if not flags[A[i]]:
+            # if there is no leaf at the current position,
+            # mark the position and decrement the count of positions to be covered
+            flags[A[i]] = True
             X -= 1
+
         if X == 0:
             return i
     return -1
