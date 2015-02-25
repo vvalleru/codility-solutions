@@ -4,6 +4,7 @@ def solution(A):
     
     for i in A:
         if i == 1:
+            # each car travelling west, passes all the earlier cars travelling east
             result += east_cars
             if result > 1000000000:
                 return -1
