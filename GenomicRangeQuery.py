@@ -5,25 +5,18 @@ def solution(S, P, Q):
     
     for index in xrange(len(S) - 1, -1, -1):
         # record the indexes in the reverse order
+        table[0][index] = table[0][(index + 1) % len(S)]
+        table[1][index] = table[1][(index + 1) % len(S)]
+        table[2][index] = table[2][(index + 1) % len(S)]
+        table[3][index] = table[3][(index + 1) % len(S)]
+        
         if S[index] == 'A':
             table[0][index] = index
-            table[1][index] = table[1][(index + 1) % len(S)]
-            table[2][index] = table[2][(index + 1) % len(S)]
-            table[3][index] = table[3][(index + 1) % len(S)]
         elif S[index] == 'C':
-            table[0][index] = table[0][(index + 1) % len(S)]
             table[1][index] = index
-            table[2][index] = table[2][(index + 1) % len(S)]
-            table[3][index] = table[3][(index + 1) % len(S)]
         elif S[index] == 'G':
-            table[0][index] = table[0][(index + 1) % len(S)]
-            table[1][index] = table[1][(index + 1) % len(S)]
             table[2][index] = index
-            table[3][index] = table[3][(index + 1) % len(S)]
         else:
-            table[0][index] = table[0][(index + 1) % len(S)]
-            table[1][index] = table[1][(index + 1) % len(S)]
-            table[2][index] = table[2][(index + 1) % len(S)]
             table[3][index] = index
     
     for query in xrange(len(P)):
