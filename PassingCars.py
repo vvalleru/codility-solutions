@@ -1,14 +1,16 @@
-def solution(A):
-    result = 0
-    east_cars = 0
-    
-    for i in A:
-        if i == 1:
-            # each car travelling west, passes all the earlier cars travelling east
-            result += east_cars
-            if result > 1000000000:
-                return -1
-        else:
-            east_cars += 1
-    
-    return result
+class PassingCars:
+  def __init__(self, A):
+    self.A = A
+    self.passingCars = 0
+    self.carsTravellingEast = 0
+
+  def getPassingCars(self):
+    for car in self.A:
+      if car == 1:
+        self.passingCars += self.carsTravellingEast
+        if self.passingCars > 1000000000:
+          return -1
+      else:
+          self.carsTravellingEast += 1
+
+    return self.passingCars
